@@ -1,0 +1,25 @@
+<p>
+  <input type="text" #userEnter>
+  <button (click)="addListItem(userEnter.value)">
+    {{isUpdateButtonClicked ? 'Edit Item' : 'Add Item'}}
+  </button>
+
+</p>
+
+<hr/>
+
+<ul>
+  <li *ngFor="let name of (homeListState | async).names ;let i =index">
+    <a>{{name}}</a>
+    <button (click)="deleteItem(i)">Delete</button>
+    <button (click)="editItem(i ,name)">Edit</button>
+
+  </li>
+</ul>
+
+
+<button (click)="fetchData()">Fetch</button>
+
+<ul>
+  <li *ngFor="let f of (bankListState | async).banks"></li>
+</ul>
